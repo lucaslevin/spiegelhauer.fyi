@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { MeshGradient } from '@paper-design/shaders-react'
 
 function App() {
   const revealRefs = useRef<(HTMLElement | null)[]>([])
@@ -50,7 +51,21 @@ function App() {
       </header>
 
       {/* Hero */}
-      <section className="min-h-svh flex flex-col justify-center items-center text-center px-6 pt-14">
+      <section className="relative min-h-svh flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
+        {/* Mesh gradient background */}
+        <div className="absolute inset-0 z-0">
+          <MeshGradient
+            colors={['#0f1119', '#1a1c2e', '#2d1f1a', '#1c2326']}
+            distortion={0.6}
+            swirl={0.3}
+            speed={0.08}
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+        {/* Subtle dark overlay for text readability */}
+        <div className="absolute inset-0 z-[1] bg-[var(--color-bg)]/40" />
+        {/* Content */}
+        <div className="relative z-10">
         <p className="animate-fade-up text-sm tracking-widest uppercase text-[var(--color-accent)] mb-6">
           Copenhagen, Denmark
         </p>
@@ -68,6 +83,7 @@ function App() {
           Get in touch
           <span className="text-base">→</span>
         </a>
+        </div>
       </section>
 
       {/* Separator */}
