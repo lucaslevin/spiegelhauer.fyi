@@ -12,6 +12,7 @@
     "preview": "bun run vite preview"
   },
   "dependencies": {
+    "@fontsource/dm-serif-display": "^5.2.8",
     "@paper-design/shaders-react": "^0.0.76",
     "@tabler/icons-react": "^3.44.0",
     "nitro": "^3.0.260522-beta",

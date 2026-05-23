@@ -78,7 +78,7 @@ function App() {
             <IconMapPin size={14} stroke={1.5} />
             Copenhagen, Denmark
           </p>
-          <h1 className="animate-fade-up animate-fade-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
+          <h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
             Lucas Levin
           </h1>
           <p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
@@ -102,7 +102,7 @@ function App() {
             <p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">
               What I do
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">
               Fullstack craftsmanship
             </h2>
             <p className="text-[var(--color-text)] leading-relaxed max-w-xl">
@@ -144,7 +144,7 @@ function App() {
             <p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">
               About
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-8">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-8">
               A decade of building for the web
             </h2>
             <div className="space-y-5 text-[var(--color-text)] leading-relaxed">
@@ -176,7 +176,7 @@ function App() {
       <section id="contact" className="py-24 sm:py-32 px-6">
         <div className="mx-auto max-w-xl text-center">
           <div ref={r(3)} className="reveal">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">
               Let's work together
             </h2>
             <p className="text-[var(--color-text)] leading-relaxed mb-10">
