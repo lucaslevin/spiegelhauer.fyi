@@ -1,5 +1,5 @@
-import { defineHandler } from "nitro";
+import { defineHandler } from 'nitro';
 
 export default defineHandler(() => {
-  return { message: "Hello Nitro!" };
+	return { message: 'Hello Nitro!' };
 });
