@@ -1,5 +1,18 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { IconArrowRight, IconBrandGithub, IconCode, IconMail, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
+import {
+	IconArrowRight,
+	IconBrandGithub,
+	IconCode,
+	IconHierarchy,
+	IconMail,
+	IconMapPin,
+	IconMenu2,
+	IconRocket,
+	IconSearch,
+	IconServer,
+	IconTrendingUp,
+	IconX,
+} from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -72,9 +85,9 @@ function App() {
 
 				{/* Mobile dropdown */}
 				<div className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0'}`}>
-					<nav className="flex flex-col px-6 py-4 gap-3 text-sm">
+					<nav className="flex flex-col px-6 py-4 gap-1 text-sm">
 						{navItems.map((item) => (
-							<a key={item.href} href={item.href} onClick={closeMenu} className={`${item.className} py-1 text-left`}>
+							<a key={item.href} href={item.href} onClick={closeMenu} className={`${item.className} py-2.5 text-left`}>
 								{item.label}
 							</a>
 						))}
@@ -96,11 +109,11 @@ function App() {
 						<IconMapPin size={14} stroke={1.5} />
 						Copenhagen, Denmark
 					</p>
-					<h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
+					<h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
 						Spiegelhauer
 					</h1>
 					<p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
-						Fullstack engineer with 10+ years building robust Node.js backends and polished React frontends.
+						I build backends that scale and frontends that feel right. Fullstack, Copenhagen-based.
 					</p>
 					<a
 						href="#contact"
@@ -119,11 +132,12 @@ function App() {
 						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What I do</p>
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">Fullstack craftsmanship</h2>
 						<p className="text-[var(--color-text)] leading-relaxed max-w-xl">
-							I build from database to deployment. TypeScript across the stack, React on the front, Node.js on the back — with a deep understanding of how they connect.
+							Database to deployment — I work across the entire stack. TypeScript everywhere, React on the front, Node.js on the back, and a clear picture of how it all fits
+							together.
 						</p>
 					</div>
 
-					<div ref={r(1)} className="reveal mt-20 grid sm:grid-cols-2 gap-16">
+					<div ref={r(1)} className="reveal mt-16 sm:mt-20 grid sm:grid-cols-2 gap-12 sm:gap-16">
 						<div>
 							<IconCode size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
 							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Frontend</h3>
@@ -142,55 +156,22 @@ function App() {
 				</div>
 			</section>
 
-			{/* Stack */}
-			<section className="py-24 sm:py-32 px-6">
-				<div className="mx-auto max-w-3xl">
-					<div ref={r(2)} className="reveal">
-						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">Stack</p>
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-10">Tools I reach for</h2>
-						<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-							{[
-								{ label: 'TypeScript', category: 'Language' },
-								{ label: 'React', category: 'Frontend' },
-								{ label: 'Next.js', category: 'Frontend' },
-								{ label: 'Tailwind CSS', category: 'Frontend' },
-								{ label: 'Node.js', category: 'Backend' },
-								{ label: 'PostgreSQL', category: 'Database' },
-								{ label: 'Redis', category: 'Database' },
-								{ label: 'Docker', category: 'Infra' },
-								{ label: 'AWS', category: 'Cloud' },
-							].map((tech) => (
-								<div key={tech.label} className="border border-border rounded-xl px-4 py-3 text-center">
-									<div className="text-sm font-medium text-text-h">{tech.label}</div>
-									<div className="text-xs text-text mt-0.5">{tech.category}</div>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
-			</section>
-
-			{/* Separator */}
-			<div className="mx-auto max-w-6xl px-6">
-				<div className="border-t border-[var(--color-border)]" />
-			</div>
-
 			{/* Story — Detail section */}
 			<section id="story" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
-					<div ref={r(3)} className="reveal">
+					<div ref={r(2)} className="reveal">
 						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">About</p>
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-8">A decade of building for the web</h2>
 						<div className="space-y-5 text-[var(--color-text)] leading-relaxed">
 							<p>
-								Based in Copenhagen, I've spent over ten years shipping software — from early-stage startups to established platforms. I'm drawn to the full picture: how data
-								flows, how interfaces feel, and how teams build together.
+								Based in Copenhagen, I've spent over a decade shipping software — from early-stage startups to established platforms. I'm drawn to the full picture: how data flows,
+								how interfaces feel, and how teams build together.
 							</p>
 							<p>
-								The stack I reach for is Node.js and React — not because they're popular, but because they're productive. TypeScript across the board. Postgres when it fits, Redis
-								when it needs to be fast.
+								I believe the best products come from iteration, not perfection. Ship early, learn fast, refine constantly. The right architecture adapts as you understand the
+								problem better.
 							</p>
-							<p>Outside of code, I'm interested in design, developer tooling, and the small details that make software feel right.</p>
+							<p>Outside of code, I care about design, developer tooling, and the details that make software feel intentional rather than assembled.</p>
 						</div>
 					</div>
 				</div>
@@ -204,7 +185,7 @@ function App() {
 			{/* Contact — Final CTA */}
 			<section id="contact" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-xl text-center">
-					<div ref={r(4)} className="reveal">
+					<div ref={r(3)} className="reveal">
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">Let's work together</h2>
 						<p className="text-[var(--color-text)] leading-relaxed mb-10">
 							Open to freelance projects, consulting, and interesting collaborations. Based in Copenhagen but comfortable working remotely.
@@ -212,10 +193,10 @@ function App() {
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<a
 								href="mailto:lucas@spiegelhauer.fyi"
-								className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
+								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline truncate max-w-full"
 							>
 								<IconMail size={16} stroke={2} />
-								lucas@spiegelhauer.fyi
+								<span className="truncate">lucas@spiegelhauer.fyi</span>
 							</a>
 							<a
 								href="https://github.com/lucaslevin"
