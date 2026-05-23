@@ -1,5 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { MeshGradient } from '@paper-design/shaders-react'
+import {
+  IconMapPin,
+  IconCode,
+  IconServer,
+  IconArrowRight,
+  IconBrandGithub,
+  IconMail,
+} from '@tabler/icons-react'
 
 function App() {
   const revealRefs = useRef<(HTMLElement | null)[]>([])
@@ -55,41 +63,37 @@ function App() {
         {/* Mesh gradient background */}
         <div className="absolute inset-0 z-0">
           <MeshGradient
-            colors={['#0f1119', '#1a1c2e', '#2d1f1a', '#1c2326']}
-            distortion={0.6}
-            swirl={0.3}
-            speed={0.08}
+            colors={['#0f172a', '#1e293b', '#e2a03f', '#312e81']}
+            distortion={0.5}
+            swirl={0.4}
+            speed={0.07}
             style={{ width: '100%', height: '100%' }}
           />
         </div>
         {/* Subtle dark overlay for text readability */}
-        <div className="absolute inset-0 z-[1] bg-[var(--color-bg)]/40" />
+        <div className="absolute inset-0 z-[1] bg-[var(--color-bg)]/30" />
         {/* Content */}
         <div className="relative z-10">
-        <p className="animate-fade-up text-sm tracking-widest uppercase text-[var(--color-accent)] mb-6">
-          Copenhagen, Denmark
-        </p>
-        <h1 className="animate-fade-up animate-fade-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
-          Lucas Levin
-        </h1>
-        <p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
-          Fullstack engineer with 10+ years building robust Node.js backends and polished React
-          frontends.
-        </p>
-        <a
-          href="#contact"
-          className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-text-h)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
-        >
-          Get in touch
-          <span className="text-base">→</span>
-        </a>
+          <p className="animate-fade-up inline-flex items-center gap-1.5 text-sm tracking-widest uppercase text-[var(--color-accent)] mb-6">
+            <IconMapPin size={14} stroke={1.5} />
+            Copenhagen, Denmark
+          </p>
+          <h1 className="animate-fade-up animate-fade-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
+            Lucas Levin
+          </h1>
+          <p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
+            Fullstack engineer with 10+ years building robust Node.js backends and polished React
+            frontends.
+          </p>
+          <a
+            href="#contact"
+            className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-text-h)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
+          >
+            Get in touch
+            <IconArrowRight size={16} stroke={2} />
+          </a>
         </div>
       </section>
-
-      {/* Separator */}
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="border-t border-[var(--color-border)]" />
-      </div>
 
       {/* Craft — Support section */}
       <section id="craft" className="py-24 sm:py-32 px-6">
@@ -109,7 +113,7 @@ function App() {
 
           <div ref={r(1)} className="reveal mt-20 grid sm:grid-cols-2 gap-16">
             <div>
-              <div className="text-sm font-mono text-[var(--color-accent)] mb-3">01</div>
+              <IconCode size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
               <h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Frontend</h3>
               <p className="text-[var(--color-text)] leading-relaxed text-sm">
                 React, Next.js, TypeScript. Design systems, accessibility, and performance. I care
@@ -117,7 +121,7 @@ function App() {
               </p>
             </div>
             <div>
-              <div className="text-sm font-mono text-[var(--color-accent)] mb-3">02</div>
+              <IconServer size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
               <h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Backend</h3>
               <p className="text-[var(--color-text)] leading-relaxed text-sm">
                 Node.js, APIs, databases. Event-driven architectures, message queues, and the
@@ -184,6 +188,7 @@ function App() {
                 href="mailto:lucas@spiegelhauer.fyi"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
               >
+                <IconMail size={16} stroke={2} />
                 lucas@spiegelhauer.fyi
               </a>
               <a
@@ -192,6 +197,7 @@ function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-h)] font-medium text-sm tracking-wide hover:border-[var(--color-accent)] transition-colors no-underline"
               >
+                <IconBrandGithub size={16} stroke={2} />
                 GitHub
               </a>
             </div>
@@ -203,7 +209,10 @@ function App() {
       <footer className="border-t border-[var(--color-border)] py-8 px-6">
         <div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--color-text)]">
           <span>© {new Date().getFullYear()} Lucas Levin</span>
-          <span>Copenhagen, Denmark</span>
+          <span className="inline-flex items-center gap-1">
+            <IconMapPin size={12} stroke={1.5} />
+            Copenhagen, Denmark
+          </span>
         </div>
       </footer>
     </>
