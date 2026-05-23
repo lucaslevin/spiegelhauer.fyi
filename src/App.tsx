@@ -75,8 +75,8 @@ function App() {
 
         {/* Mobile dropdown */}
         <div
-          className={`sm:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-md ${
-            menuOpen ? 'mobile-nav-enter-active' : 'mobile-nav-enter'
+          className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${
+            menuOpen ? 'max-h-64 opacity-100 border-t border-[var(--color-border)]' : 'max-h-0 opacity-0'
           }`}
         >
           <nav className="flex flex-col px-6 py-4 gap-3 text-sm">

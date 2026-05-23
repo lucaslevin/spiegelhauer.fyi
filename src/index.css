@@ -67,16 +67,3 @@ body {
   box-shadow: 0 0 24px var(--color-accent-glow);
   transform: translateY(-1px);
 }
-
-/* Mobile nav */
-@media (max-width: 639px) {
-  .mobile-nav-enter {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  .mobile-nav-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-  }
-}
