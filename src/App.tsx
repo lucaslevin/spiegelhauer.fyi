@@ -6,6 +6,14 @@ function App() {
 	const revealRefs = useRef<(HTMLElement | null)[]>([]);
 	const meshRef = useRef<HTMLDivElement>(null);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 0);
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -52,7 +60,9 @@ function App() {
 	return (
 		<>
 			{/* Sticky header */}
-			<header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 bg-bg/60 backdrop-blur-md">
+			<header
+				className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out ${scrolled ? 'bg-bg/60 backdrop-blur-md border-b border-border/40' : 'border-b border-transparent'}`}
+			>
 				<div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
 					<button
 						type="button"
@@ -63,7 +73,7 @@ function App() {
 					</button>
 
 					{/* Desktop nav */}
-					<nav className="hidden sm:flex gap-8 text-sm text-text">
+					<nav className={`hidden sm:flex gap-8 text-sm transition-colors duration-500 ${scrolled ? 'text-text' : 'text-text-h/70'}`}>
 						{navItems.map((item) => (
 							<a key={item.href} href={item.href} className={item.className}>
 								{item.label}
@@ -75,7 +85,7 @@ function App() {
 					<button
 						type="button"
 						onClick={() => setMenuOpen(!menuOpen)}
-						className="sm:hidden p-1.5 -mr-1.5 text-text hover:text-text-h transition-colors"
+						className={`sm:hidden p-1.5 -mr-1.5 transition-colors duration-500 ${scrolled ? 'text-text' : 'text-text-h/70'} hover:text-text-h`}
 						aria-label={menuOpen ? 'Close menu' : 'Open menu'}
 						aria-expanded={menuOpen}
 						aria-controls="mobile-menu"
@@ -87,7 +97,7 @@ function App() {
 				{/* Mobile dropdown */}
 				<div
 					id="mobile-menu"
-					className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0'}`}
+					className={`sm:hidden overflow-hidden transition-all duration-250 ease-out bg-bg ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0 border-transparent'}`}
 				>
 					<nav className="flex flex-col px-6 py-4 gap-1 text-sm">
 						{navItems.map((item) => (
