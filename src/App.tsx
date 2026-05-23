@@ -83,7 +83,7 @@ function App() {
 			</header>
 
 			{/* Hero */}
-			<section className="relative min-h-svh flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
+			<section className="relative min-h-[70svh] flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
 				{/* Mesh gradient background */}
 				<div className="absolute inset-0 z-0">
 					<MeshGradient colors={['#0f172a', '#1e293b', '#e2a03f', '#312e81']} distortion={0.5} swirl={0.4} speed={0.07} style={{ width: '100%', height: '100%' }} />
@@ -142,6 +142,34 @@ function App() {
 				</div>
 			</section>
 
+			{/* Stack */}
+			<section className="py-24 sm:py-32 px-6">
+				<div className="mx-auto max-w-3xl">
+					<div ref={r(2)} className="reveal">
+						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">Stack</p>
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-10">Tools I reach for</h2>
+						<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+							{[
+								{ label: 'TypeScript', category: 'Language' },
+								{ label: 'React', category: 'Frontend' },
+								{ label: 'Next.js', category: 'Frontend' },
+								{ label: 'Tailwind CSS', category: 'Frontend' },
+								{ label: 'Node.js', category: 'Backend' },
+								{ label: 'PostgreSQL', category: 'Database' },
+								{ label: 'Redis', category: 'Database' },
+								{ label: 'Docker', category: 'Infra' },
+								{ label: 'AWS', category: 'Cloud' },
+							].map((tech) => (
+								<div key={tech.label} className="border border-border rounded-xl px-4 py-3 text-center">
+									<div className="text-sm font-medium text-text-h">{tech.label}</div>
+									<div className="text-xs text-text mt-0.5">{tech.category}</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+
 			{/* Separator */}
 			<div className="mx-auto max-w-6xl px-6">
 				<div className="border-t border-[var(--color-border)]" />
@@ -150,7 +178,7 @@ function App() {
 			{/* Story — Detail section */}
 			<section id="story" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
-					<div ref={r(2)} className="reveal">
+					<div ref={r(3)} className="reveal">
 						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">About</p>
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-8">A decade of building for the web</h2>
 						<div className="space-y-5 text-[var(--color-text)] leading-relaxed">
@@ -176,7 +204,7 @@ function App() {
 			{/* Contact — Final CTA */}
 			<section id="contact" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-xl text-center">
-					<div ref={r(3)} className="reveal">
+					<div ref={r(4)} className="reveal">
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">Let's work together</h2>
 						<p className="text-[var(--color-text)] leading-relaxed mb-10">
 							Open to freelance projects, consulting, and interesting collaborations. Based in Copenhagen but comfortable working remotely.
