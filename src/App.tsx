@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MeshGradient } from '@paper-design/shaders-react'
 import {
   IconMapPin,
@@ -7,10 +7,13 @@ import {
   IconArrowRight,
   IconBrandGithub,
   IconMail,
+  IconMenu2,
+  IconX,
 } from '@tabler/icons-react'
 
 function App() {
   const revealRefs = useRef<(HTMLElement | null)[]>([])
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,6 +36,8 @@ function App() {
     revealRefs.current[i] = el
   }
 
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <>
       {/* Sticky header */}
@@ -41,7 +46,9 @@ function App() {
           <span className="text-[var(--color-text-h)] font-semibold tracking-tight text-lg">
             spiegelhauer
           </span>
-          <nav className="flex gap-8 text-sm text-[var(--color-text)]">
+
+          {/* Desktop nav */}
+          <nav className="hidden sm:flex gap-8 text-sm text-[var(--color-text)]">
             <a href="#craft" className="hover:text-[var(--color-text-h)] transition-colors">
               Work
             </a>
@@ -51,6 +58,46 @@ function App() {
             <a
               href="#contact"
               className="text-[var(--color-accent)] hover:opacity-80 transition-opacity font-medium"
+            >
+              Contact
+            </a>
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="sm:hidden p-1.5 -mr-1.5 text-[var(--color-text)] hover:text-[var(--color-text-h)] transition-colors"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {menuOpen ? <IconX size={22} stroke={1.5} /> : <IconMenu2 size={22} stroke={1.5} />}
+          </button>
+        </div>
+
+        {/* Mobile dropdown */}
+        <div
+          className={`sm:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-md ${
+            menuOpen ? 'mobile-nav-enter-active' : 'mobile-nav-enter'
+          }`}
+        >
+          <nav className="flex flex-col px-6 py-4 gap-3 text-sm">
+            <a
+              href="#craft"
+              onClick={closeMenu}
+              className="text-[var(--color-text)] hover:text-[var(--color-text-h)] transition-colors py-1"
+            >
+              Work
+            </a>
+            <a
+              href="#story"
+              onClick={closeMenu}
+              className="text-[var(--color-text)] hover:text-[var(--color-text-h)] transition-colors py-1"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              onClick={closeMenu}
+              className="text-[var(--color-accent)] hover:opacity-80 transition-opacity font-medium py-1"
             >
               Contact
             </a>
