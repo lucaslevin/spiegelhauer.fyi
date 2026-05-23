@@ -29,6 +29,12 @@ function App() {
 		revealRefs.current[i] = el;
 	};
 
+	const navItems = [
+		{ href: '#craft', label: 'Work', className: 'hover:text-text-h transition-colors' },
+		{ href: '#story', label: 'About', className: 'hover:text-text-h transition-colors' },
+		{ href: '#contact', label: 'Contact', className: 'text-accent hover:opacity-80 transition-opacity font-medium' },
+	] as const;
+
 	const closeMenu = () => setMenuOpen(false);
 
 	return (
@@ -40,15 +46,11 @@ function App() {
 
 					{/* Desktop nav */}
 					<nav className="hidden sm:flex gap-8 text-sm text-text">
-						<a href="#craft" className="hover:text-text-h transition-colors">
-							Work
-						</a>
-						<a href="#story" className="hover:text-text-h transition-colors">
-							About
-						</a>
-						<a href="#contact" className="text-accent hover:opacity-80 transition-opacity font-medium">
-							Contact
-						</a>
+						{navItems.map((item) => (
+							<a key={item.href} href={item.href} className={item.className}>
+								{item.label}
+							</a>
+						))}
 					</nav>
 
 					{/* Mobile hamburger */}
@@ -65,15 +67,11 @@ function App() {
 				{/* Mobile dropdown */}
 				<div className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0'}`}>
 					<nav className="flex flex-col px-6 py-4 gap-3 text-sm">
-						<button type="button" onClick={closeMenu} className="text-text hover:text-text-h transition-colors py-1 text-left">
-							Work
-						</button>
-						<button type="button" onClick={closeMenu} className="text-text hover:text-text-h transition-colors py-1 text-left">
-							About
-						</button>
-						<button type="button" onClick={closeMenu} className="text-accent hover:opacity-80 transition-opacity font-medium py-1 text-left">
-							Contact
-						</button>
+						{navItems.map((item) => (
+							<a key={item.href} href={item.href} onClick={closeMenu} className={`${item.className} py-1 text-left`}>
+								{item.label}
+							</a>
+						))}
 					</nav>
 				</div>
 			</header>
