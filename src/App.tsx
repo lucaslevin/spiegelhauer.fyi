@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 function App() {
 	const revealRefs = useRef<(HTMLElement | null)[]>([]);
+	const meshRef = useRef<HTMLDivElement>(null);
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
@@ -23,6 +24,16 @@ function App() {
 		return () => {
 			for (const el of refs) observer.unobserve(el);
 		};
+	}, []);
+
+	useEffect(() => {
+		const mesh = meshRef.current;
+		if (!mesh) return;
+		const onScroll = () => {
+			mesh.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
 	const r = (i: number) => (el: HTMLElement | null) => {
@@ -85,7 +96,7 @@ function App() {
 			{/* Hero */}
 			<section className="relative min-h-[70svh] flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
 				{/* Mesh gradient background */}
-				<div className="absolute inset-0 z-0">
+				<div ref={meshRef} className="absolute inset-0 z-0">
 					<MeshGradient colors={['#0f172a', '#1e293b', '#e2a03f', '#312e81']} distortion={0.5} swirl={0.4} speed={0.07} style={{ width: '100%', height: '100%' }} />
 				</div>
 				{/* Subtle dark overlay for text readability */}
@@ -100,13 +111,13 @@ function App() {
 						Spiegelhauer
 					</h1>
 					<p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
-						I build backends that scale and frontends that feel right. Fullstack, Copenhagen-based.
+						Your product, built end to end. From first conversation to live deployment — frontend, backend, and everything between.
 					</p>
 					<a
 						href="#contact"
 						className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-text-h)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
 					>
-						Get in touch
+						Book a free call
 						<IconArrowRight size={16} stroke={2} />
 					</a>
 				</div>
@@ -116,11 +127,10 @@ function App() {
 			<section id="craft" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
 					<div ref={r(0)} className="reveal">
-						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What I do</p>
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">Fullstack craftsmanship</h2>
+						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What you get</p>
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">End-to-end, no gaps</h2>
 						<p className="text-[var(--color-text)] leading-relaxed max-w-xl">
-							Database to deployment — I work across the entire stack. TypeScript everywhere, React on the front, Node.js on the back, and a clear picture of how it all fits
-							together.
+							One person, one codebase, one point of contact. Frontend, backend, infrastructure — handled together so nothing gets lost in translation.
 						</p>
 					</div>
 
@@ -129,14 +139,14 @@ function App() {
 							<IconCode size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
 							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Frontend</h3>
 							<p className="text-[var(--color-text)] leading-relaxed text-sm">
-								React, Next.js, TypeScript. Design systems, accessibility, and performance. I care about the pixel on screen as much as the code behind it.
+								Interfaces that feel right. Fast, accessible, polished — built with React, designed for real people.
 							</p>
 						</div>
 						<div>
 							<IconServer size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
 							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Backend</h3>
 							<p className="text-[var(--color-text)] leading-relaxed text-sm">
-								Node.js, APIs, databases. Event-driven architectures, message queues, and the patterns that keep systems reliable at scale.
+								Backends that don't break. Scalable APIs, solid databases, architectures that grow with your users.
 							</p>
 						</div>
 					</div>
@@ -155,10 +165,10 @@ function App() {
 								how interfaces feel, and how teams build together.
 							</p>
 							<p>
-								I believe the best products come from iteration, not perfection. Ship early, learn fast, refine constantly. The right architecture adapts as you understand the
-								problem better.
+								Every project starts with the same question: what problem are we solving? From there it's clear communication, regular updates, and shipping working software — not
+								chasing perfection.
 							</p>
-							<p>Outside of code, I care about design, developer tooling, and the details that make software feel intentional rather than assembled.</p>
+							<p>I care about the details. Good typography, solid architecture, software that feels considered rather than cobbled together.</p>
 						</div>
 					</div>
 				</div>
@@ -174,9 +184,7 @@ function App() {
 				<div className="mx-auto max-w-xl text-center">
 					<div ref={r(3)} className="reveal">
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">Let's work together</h2>
-						<p className="text-[var(--color-text)] leading-relaxed mb-10">
-							Open to freelance projects, consulting, and interesting collaborations. Based in Copenhagen but comfortable working remotely.
-						</p>
+						<p className="text-[var(--color-text)] leading-relaxed mb-10">Have a project in mind? Let's talk it through. No obligation, just a conversation about what you need.</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<a
 								href="https://cal.com/spiegelhauer"
