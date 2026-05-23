@@ -1,18 +1,5 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import {
-	IconArrowRight,
-	IconBrandGithub,
-	IconCode,
-	IconHierarchy,
-	IconMail,
-	IconMapPin,
-	IconMenu2,
-	IconRocket,
-	IconSearch,
-	IconServer,
-	IconTrendingUp,
-	IconX,
-} from '@tabler/icons-react';
+import { IconArrowRight, IconBrandGithub, IconCode, IconMail, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
