@@ -1,5 +1,5 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { IconArrowRight, IconBrandGithub, IconCode, IconMail, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
+import { IconArrowRight, IconBrandGithub, IconCalendar, IconCode, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -179,11 +179,13 @@ function App() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<a
-								href="mailto:lucas@spiegelhauer.fyi"
-								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline truncate max-w-full"
+								href="https://cal.com/spiegelhauer"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
 							>
-								<IconMail size={16} stroke={2} />
-								<span className="truncate">lucas@spiegelhauer.fyi</span>
+								<IconCalendar size={16} stroke={2} />
+								Book a meeting
 							</a>
 							<a
 								href="https://github.com/lucaslevin"
