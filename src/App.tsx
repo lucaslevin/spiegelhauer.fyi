@@ -1,5 +1,5 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { IconArrowRight, IconBrandGithub, IconCalendar, IconCode, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
+import { IconBrandGithub, IconCalendar, IconCode, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
 	useEffect(() => {
 		const mesh = meshRef.current;
 		if (!mesh) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 		const onScroll = () => {
 			mesh.style.transform = `translateY(${window.scrollY * 0.15}px)`;
 		};
@@ -51,7 +52,7 @@ function App() {
 	return (
 		<>
 			{/* Sticky header */}
-			<header className="fixed top-0 inset-x-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
+			<header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 bg-bg/60 backdrop-blur-md">
 				<div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
 					<button
 						type="button"
@@ -76,13 +77,18 @@ function App() {
 						onClick={() => setMenuOpen(!menuOpen)}
 						className="sm:hidden p-1.5 -mr-1.5 text-text hover:text-text-h transition-colors"
 						aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+						aria-expanded={menuOpen}
+						aria-controls="mobile-menu"
 					>
 						{menuOpen ? <IconX size={22} stroke={1.5} /> : <IconMenu2 size={22} stroke={1.5} />}
 					</button>
 				</div>
 
 				{/* Mobile dropdown */}
-				<div className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0'}`}>
+				<div
+					id="mobile-menu"
+					className={`sm:hidden overflow-hidden transition-all duration-250 ease-out ${menuOpen ? 'max-h-64 opacity-100 border-t border-border' : 'max-h-0 opacity-0'}`}
+				>
 					<nav className="flex flex-col px-6 py-4 gap-1 text-sm">
 						{navItems.map((item) => (
 							<a key={item.href} href={item.href} onClick={closeMenu} className={`${item.className} py-2.5 text-left`}>
@@ -110,15 +116,14 @@ function App() {
 					<h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
 						Spiegelhauer
 					</h1>
-					<p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-[var(--color-text)] max-w-lg leading-relaxed mb-10">
+					<p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-text-h/80 max-w-lg leading-relaxed mb-10">
 						Your product, built end to end. From first conversation to live deployment — frontend, backend, and everything between.
 					</p>
 					<a
 						href="#contact"
 						className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-text-h)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
 					>
-						Book a free call
-						<IconArrowRight size={16} stroke={2} />
+						Get in touch
 					</a>
 				</div>
 			</section>
@@ -127,26 +132,29 @@ function App() {
 			<section id="craft" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
 					<div ref={r(0)} className="reveal">
-						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What you get</p>
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">End-to-end, no gaps</h2>
+						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What I do</p>
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">From idea to live product</h2>
 						<p className="text-[var(--color-text)] leading-relaxed max-w-xl">
-							One person, one codebase, one point of contact. Frontend, backend, infrastructure — handled together so nothing gets lost in translation.
+							Every project starts the same way: understanding the problem before reaching for a solution. From there it's design, build, launch — tightly connected, never thrown
+							over a wall.
 						</p>
 					</div>
 
-					<div ref={r(1)} className="reveal mt-16 sm:mt-20 grid sm:grid-cols-2 gap-12 sm:gap-16">
+					<div ref={r(1)} className="reveal mt-16 sm:mt-20 grid sm:grid-cols-2 gap-10 sm:gap-16">
 						<div>
 							<IconCode size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
-							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Frontend</h3>
+							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">What you see</h3>
 							<p className="text-[var(--color-text)] leading-relaxed text-sm">
-								Interfaces that feel right. Fast, accessible, polished — built with React, designed for real people.
+								Interfaces people enjoy using. Fast, accessible, polished — built so your product feels good in their hands. Every screen, every interaction, every device — I make
+								sure it all holds together.
 							</p>
 						</div>
 						<div>
 							<IconServer size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
-							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Backend</h3>
+							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Under the hood</h3>
 							<p className="text-[var(--color-text)] leading-relaxed text-sm">
-								Backends that don't break. Scalable APIs, solid databases, architectures that grow with your users.
+								Infrastructure you don't have to think about. Scalable APIs, solid databases — the engine runs so you can focus on everything else. Reliable, tested, and deployed
+								on infrastructure that grows with your users.
 							</p>
 						</div>
 					</div>
@@ -169,6 +177,10 @@ function App() {
 								chasing perfection.
 							</p>
 							<p>I care about the details. Good typography, solid architecture, software that feels considered rather than cobbled together.</p>
+							<p>
+								I'm most excited by projects that solve real problems for real people — whether that's a customer-facing app, an internal tool, or an API powering a new service.
+								That's the work I want to do.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -184,7 +196,10 @@ function App() {
 				<div className="mx-auto max-w-xl text-center">
 					<div ref={r(3)} className="reveal">
 						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">Let's work together</h2>
-						<p className="text-[var(--color-text)] leading-relaxed mb-10">Have a project in mind? Let's talk it through. No obligation, just a conversation about what you need.</p>
+						<p className="text-[var(--color-text)] leading-relaxed mb-10">
+							Have a project in mind? Let's talk it through. No obligation, just a conversation about what you need. Full builds, additions to existing products, or technical
+							consulting — all welcome.
+						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<a
 								href="https://cal.com/spiegelhauer"
@@ -199,7 +214,7 @@ function App() {
 								href="https://github.com/lucaslevin"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-h)] font-medium text-sm tracking-wide hover:border-[var(--color-accent)] transition-colors no-underline"
+								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-h)] font-medium text-sm tracking-wide hover:border-[var(--color-accent)] transition-colors no-underline"
 							>
 								<IconBrandGithub size={16} stroke={2} />
 								GitHub
