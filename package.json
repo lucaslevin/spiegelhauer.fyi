@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "bun@1.3.14",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "start": "node .output/server/index.mjs",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "bun run vite",
+    "build": "bun run tsc -b && vite build",
+    "start": "bun run .output/server/index.mjs",
+    "lint": "bun run eslint .",
+    "preview": "bun run vite preview"
   },
   "dependencies": {
     "nitro": "^3.0.260522-beta",
