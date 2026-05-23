@@ -1,5 +1,5 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { IconBrandGithub, IconCalendar, IconCode, IconMapPin, IconMenu2, IconServer, IconX } from '@tabler/icons-react';
+import { IconBrandGithub, IconCalendar, IconCpu, IconMapPin, IconMenu2, IconPalette, IconX } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -119,11 +119,11 @@ function App() {
 				<div className="absolute inset-0 z-1 bg-bg/30" />
 				{/* Content */}
 				<div className="relative z-10">
-					<p className="animate-fade-up inline-flex items-center gap-1.5 text-sm tracking-widest uppercase text-[var(--color-accent)] mb-6">
+					<p className="animate-fade-up inline-flex items-center gap-1.5 text-sm tracking-widest uppercase text-accent mb-6">
 						<IconMapPin size={14} stroke={1.5} />
 						Copenhagen, Denmark
 					</p>
-					<h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-text-h)] leading-none mb-6">
+					<h1 className="animate-fade-up animate-fade-up-delay-1 font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-h leading-none mb-6">
 						Spiegelhauer
 					</h1>
 					<p className="animate-fade-up animate-fade-up-delay-2 text-lg sm:text-xl text-text-h/80 max-w-lg leading-relaxed mb-10">
@@ -131,7 +131,7 @@ function App() {
 					</p>
 					<a
 						href="#contact"
-						className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-text-h)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
+						className="animate-fade-up animate-fade-up-delay-3 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-text-h text-bg font-medium text-sm tracking-wide accent-glow no-underline"
 					>
 						Get in touch
 					</a>
@@ -142,9 +142,9 @@ function App() {
 			<section id="craft" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
 					<div ref={r(0)} className="reveal">
-						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">What I do</p>
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-6">From idea to live product</h2>
-						<p className="text-[var(--color-text)] leading-relaxed max-w-xl">
+						<p className="text-sm tracking-widest uppercase text-accent mb-4">What I do</p>
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-text-h mb-6">From idea to live product</h2>
+						<p className="text-text leading-relaxed max-w-xl">
 							Every project starts the same way: understanding the problem before reaching for a solution. From there it's design, build, launch — tightly connected, never thrown
 							over a wall.
 						</p>
@@ -152,17 +152,17 @@ function App() {
 
 					<div ref={r(1)} className="reveal mt-16 sm:mt-20 grid sm:grid-cols-2 gap-10 sm:gap-16">
 						<div>
-							<IconCode size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
-							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">What you see</h3>
-							<p className="text-[var(--color-text)] leading-relaxed text-sm">
+							<IconPalette size={24} stroke={1.5} className="text-accent mb-3" />
+							<h3 className="text-xl font-semibold text-text-h mb-2">What you see</h3>
+							<p className="text-text leading-relaxed text-sm">
 								Interfaces people enjoy using. Fast, accessible, polished — built so your product feels good in their hands. Every screen, every interaction, every device — I make
 								sure it all holds together.
 							</p>
 						</div>
 						<div>
-							<IconServer size={24} stroke={1.5} className="text-[var(--color-accent)] mb-3" />
-							<h3 className="text-xl font-semibold text-[var(--color-text-h)] mb-2">Under the hood</h3>
-							<p className="text-[var(--color-text)] leading-relaxed text-sm">
+							<IconCpu size={24} stroke={1.5} className="text-accent mb-3" />
+							<h3 className="text-xl font-semibold text-text-h mb-2">Under the hood</h3>
+							<p className="text-text leading-relaxed text-sm">
 								Infrastructure you don't have to think about. Scalable APIs, solid databases — the engine runs so you can focus on everything else. Reliable, tested, and deployed
 								on infrastructure that grows with your users.
 							</p>
@@ -171,13 +171,18 @@ function App() {
 				</div>
 			</section>
 
+			{/* Separator */}
+			<div className="mx-auto max-w-6xl px-6">
+				<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+			</div>
+
 			{/* Story — Detail section */}
 			<section id="story" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-3xl">
 					<div ref={r(2)} className="reveal">
-						<p className="text-sm tracking-widest uppercase text-[var(--color-accent)] mb-4">About</p>
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-8">A decade of building for the web</h2>
-						<div className="space-y-5 text-[var(--color-text)] leading-relaxed">
+						<p className="text-sm tracking-widest uppercase text-accent mb-4">About</p>
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-text-h mb-8">A decade of building for the web</h2>
+						<div className="space-y-5 text-text leading-relaxed">
 							<p>
 								Based in Copenhagen, I've spent over a decade shipping software — from early-stage startups to established platforms. I'm drawn to the full picture: how data flows,
 								how interfaces feel, and how teams build together.
@@ -198,15 +203,15 @@ function App() {
 
 			{/* Separator */}
 			<div className="mx-auto max-w-6xl px-6">
-				<div className="border-t border-[var(--color-border)]" />
+				<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 			</div>
 
 			{/* Contact — Final CTA */}
 			<section id="contact" className="py-24 sm:py-32 px-6">
 				<div className="mx-auto max-w-xl text-center">
 					<div ref={r(3)} className="reveal">
-						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-h)] mb-4">Let's work together</h2>
-						<p className="text-[var(--color-text)] leading-relaxed mb-10">
+						<h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-text-h mb-4">Let's work together</h2>
+						<p className="text-text leading-relaxed mb-10">
 							Have a project in mind? Let's talk it through. No obligation, just a conversation about what you need. Full builds, additions to existing products, or technical
 							consulting — all welcome.
 						</p>
@@ -215,7 +220,7 @@ function App() {
 								href="https://cal.com/spiegelhauer"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-medium text-sm tracking-wide accent-glow no-underline"
+								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-accent text-bg font-medium text-sm tracking-wide accent-glow no-underline"
 							>
 								<IconCalendar size={16} stroke={2} />
 								Book a meeting
@@ -224,7 +229,7 @@ function App() {
 								href="https://github.com/lucaslevin"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-h)] font-medium text-sm tracking-wide hover:border-[var(--color-accent)] transition-colors no-underline"
+								className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-border text-text-h font-medium text-sm tracking-wide hover:border-accent transition-colors no-underline"
 							>
 								<IconBrandGithub size={16} stroke={2} />
 								GitHub
@@ -235,9 +240,9 @@ function App() {
 			</section>
 
 			{/* Footer */}
-			<footer className="border-t border-[var(--color-border)] py-8 px-6">
-				<div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--color-text)]">
-					<span>© {new Date().getFullYear()} Lucas Levin</span>
+			<footer className="border-t border-border py-8 px-6">
+				<div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-text">
+					<span>© {new Date().getFullYear()} Lucas Spiegelhauer Levin</span>
 					<span className="inline-flex items-center gap-1">
 						<IconMapPin size={12} stroke={1.5} />
 						Copenhagen, Denmark
