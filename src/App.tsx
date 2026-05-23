@@ -42,7 +42,13 @@ function App() {
 			{/* Sticky header */}
 			<header className="fixed top-0 inset-x-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
 				<div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
-					<span className="text-text-h font-semibold tracking-tight text-lg">Spiegelhauer</span>
+					<button
+						type="button"
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+						className="text-text-h font-semibold tracking-tight text-lg cursor-pointer bg-transparent border-none p-0"
+					>
+						Spiegelhauer
+					</button>
 
 					{/* Desktop nav */}
 					<nav className="hidden sm:flex gap-8 text-sm text-text">
