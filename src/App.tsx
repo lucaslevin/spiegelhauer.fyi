@@ -110,7 +110,7 @@ function App() {
 			</header>
 
 			{/* Hero */}
-			<section className="relative min-h-[85svh] flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
+			<section className="relative min-h-[70svh] flex flex-col justify-center items-center text-center px-6 pt-14 overflow-hidden">
 				{/* Mesh gradient background */}
 				<div ref={meshRef} className="absolute inset-0 z-0">
 					<MeshGradient colors={['#0f172a', '#1e293b', '#e2a03f', '#312e81']} distortion={0.5} swirl={0.4} speed={0.07} style={{ width: '100%', height: '100%' }} />
@@ -153,7 +153,7 @@ function App() {
 					<div ref={r(1)} className="reveal mt-16 sm:mt-20 grid sm:grid-cols-2 gap-10 sm:gap-16">
 						<div>
 							<IconPalette size={24} stroke={1.5} className="text-accent mb-3" />
-							<h3 className="text-xl font-semibold text-text-h mb-2">React · TypeScript · Tailwind</h3>
+							<h3 className="text-xl font-semibold text-text-h mb-2">What you see</h3>
 							<p className="text-text leading-relaxed text-sm">
 								Interfaces people enjoy using. Fast, accessible, polished — built so your product feels good in their hands. Every screen, every interaction, every device — I make
 								sure it all holds together.
@@ -161,7 +161,7 @@ function App() {
 						</div>
 						<div>
 							<IconCpu size={24} stroke={1.5} className="text-accent mb-3" />
-							<h3 className="text-xl font-semibold text-text-h mb-2">Node.js · PostgreSQL · Cloud</h3>
+							<h3 className="text-xl font-semibold text-text-h mb-2">Under the hood</h3>
 							<p className="text-text leading-relaxed text-sm">
 								Infrastructure you don't have to think about. Scalable APIs, solid databases — the engine runs so you can focus on everything else. Reliable, tested, and deployed
 								on infrastructure that grows with your users.
