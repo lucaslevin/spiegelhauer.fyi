@@ -1,6 +1,7 @@
 import { MeshGradient } from '@paper-design/shaders-react';
 import { IconBrandGithub, IconCalendar, IconCpu, IconMapPin, IconMenu2, IconPalette, IconX } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
+import Footer from '../components/footer.tsx';
 
 function Home() {
 	const revealRefs = useRef<(HTMLElement | null)[]>([]);
@@ -240,15 +241,7 @@ function Home() {
 			</section>
 
 			{/* Footer */}
-			<footer className="border-t border-border py-8 px-6">
-				<div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-text">
-					<span>© {new Date().getFullYear()} Lucas Spiegelhauer Levin</span>
-					<span className="inline-flex items-center gap-1">
-						<IconMapPin size={12} stroke={1.5} />
-						Copenhagen, Denmark
-					</span>
-				</div>
-			</footer>
+			<Footer />
 		</>
 	);
 }

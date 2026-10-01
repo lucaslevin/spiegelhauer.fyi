@@ -1,5 +1,6 @@
-import { IconArrowLeft, IconBrandGithub, IconMapPin } from '@tabler/icons-react';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { Link } from 'wouter';
+import Footer from '../components/footer.tsx';
 
 const LAST_UPDATED = '1 October 2026';
 
@@ -93,24 +94,9 @@ function NomismaPrivacy() {
 						</a>
 					</p>
 				</Section>
-
-				<div className="mt-14 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-text">
-					<span>© {new Date().getFullYear()} Lucas Spiegelhauer Levin</span>
-					<span className="inline-flex items-center gap-1.5">
-						<IconMapPin size={12} stroke={1.5} />
-						Copenhagen, Denmark
-					</span>
-					<a
-						href="https://github.com/lucaslevin"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center gap-1.5 hover:text-text-h transition-colors no-underline"
-					>
-						<IconBrandGithub size={12} stroke={1.5} />
-						GitHub
-					</a>
-				</div>
 			</main>
+
+			<Footer />
 		</>
 	);
 }
